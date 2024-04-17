@@ -1,4 +1,4 @@
-
+draw_text(0, 0, string(device_mouse_x_to_gui(0)) + " / " + string(hud.x))
 
 
 

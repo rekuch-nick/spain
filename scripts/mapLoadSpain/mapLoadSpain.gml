@@ -6,4 +6,8 @@ function mapLoadSpain(){
 	
 	
 	instance_create_depth(400, 400, ww.layerB, objStageButton);
+	
+	
+	var l2 = instance_create_depth(500, 400, ww.layerB, objStageButton);
+	l2.r = Time1Room02;
 }

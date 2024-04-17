@@ -1,14 +1,23 @@
 function stepPlay(){
 	
+	if(state != State.play){ return; }
+	
 	if(firstFrame){
+		for(var a=0; a<ceil(room_width / 64); a++){
+			for(var b=0; b<ceil(room_height / 64); b++){
+				ww.bmap[a, b] = noone;
+			}
+		}
+		
 		with(objBlock){ ww.bmap[x1, y1] = id; }
 		with(objWall){ ww.bmap[x1, y1] = id; }
 		firstFrame = false;
+		
 	}
 	
 	
 	
-	if(skipStep || state != State.play){ return; }
+	if(skipStep){ return; }
 	
 	xCur = floor(mouse_x / 64);
 	yCur = floor(mouse_y / 64);
@@ -23,7 +32,7 @@ function stepPlay(){
 	
 	if(cursor == noone){
 		
-		if(mouse_check_button_pressed(mb_left)){
+		if(mouse_check_button_pressed(mb_left) && device_mouse_x_to_gui(0) < hud.x){
 			if(rallyPoint == noone || rallyPoint.a != xCur || rallyPoint.b != yCur){
 				rallyPoint = { a: xCur, b: yCur };
 			} else {
@@ -31,6 +40,7 @@ function stepPlay(){
 			}
 		}
 		
+		/*
 		if(keyboard_check_pressed(ord("Q")) && coins > 100){
 			cursor = {
 				img: imgSpanTent,
@@ -39,7 +49,7 @@ function stepPlay(){
 				rang: 2,
 			};
 			buildCollisionMap();
-		}
+		}*/
 		
 		
 		
@@ -62,7 +72,7 @@ function stepPlay(){
 		
 		
 		
-		if(mouse_check_button_pressed(mb_left)){
+		if(mouse_check_button_pressed(mb_left) && device_mouse_x_to_gui(0) < hud.x){
 			if(!buildBlocker && buildInRange){
 				var s = instance_create_depth(xCur * 64, yCur * 64, layerB, cursor.obj);
 				

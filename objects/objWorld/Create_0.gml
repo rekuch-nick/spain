@@ -8,7 +8,7 @@ layerM = -3000;
 state = State.play;
 
 xCur = 0; yCur = 0;
-
+zoom_level = 1;
 
 draw_set_font(fntPlain);
 firstFrame = true;
