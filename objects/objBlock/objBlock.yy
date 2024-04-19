@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "tile",
+    "path": "folders/Objects/tile.yy",
   },
   "parentObjectId": {
     "name": "objConstructionItem",

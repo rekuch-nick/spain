@@ -7,3 +7,4 @@ yy = y;
 ww.coins = 0;
 ww.pop = 0; 
 ww.popMax = 20;
+ww.zoom_level = 1;

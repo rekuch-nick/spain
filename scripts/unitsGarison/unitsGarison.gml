@@ -6,8 +6,15 @@ function unitsGarison(b){
 	
 	
 	if(b.aly == aly && b.countGarison && b.active){
+		if(b.object_index == objSpanGuardRanged && !rangedAttack){ return; }
 		
-		var n = ds_list_size(b.garison);
+		try {
+			var n = ds_list_size(b.garison);
+		} catch(_e){
+			return;
+		}
+		
+		
 		if(n < b.garisonMin){
 			if(canBeGarison){
 				garisonAt = b;

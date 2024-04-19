@@ -75,8 +75,8 @@ function stepPlay(){
 		if(mouse_check_button_pressed(mb_left) && device_mouse_x_to_gui(0) < hud.x){
 			if(!buildBlocker && buildInRange){
 				var s = instance_create_depth(xCur * 64, yCur * 64, layerB, cursor.obj);
-				
-				//cursor = noone;
+				coins -= cursor.cost;
+				if(coins < cursor.cost){ cursor = noone; }
 				buildCollisionMap();
 			}
 			

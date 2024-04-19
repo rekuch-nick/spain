@@ -1,7 +1,7 @@
 if(ww.state != State.play || cursor == noone){ return; }
 
 
-if(mouse_check_button_pressed(mb_left)){
+if(mouse_check_button_pressed(mb_left) && ww.coins >= cursor.cost){
 	if(device_mouse_x_to_gui(0) >= x && device_mouse_x_to_gui(0) < x + sprite_width){
 		if(device_mouse_y_to_gui(0) >= y && device_mouse_y_to_gui(0) < y + sprite_height){
 			

@@ -23,15 +23,25 @@ if(x == xSpot * 64 + 32 && y == ySpot * 64 + 32){
 		actCD = 10;
 		
 		var tar = noone;
+		foeInRange = noone;
 		//melee unit
 		with(objUnit){ if(aly != other.aly){
-			var d = abs(other.xSpot - xSpot) + abs(other.ySpot - ySpot);
+			var d = disManhat(xSpot, ySpot, other.xSpot, other.ySpot);
 			tar = noone;
+			if(other.rangedAttack && d <= other.gunRange){
+				if(other.foeInRange == noone || d < ( disManhat(xSpot, ySpot, other.xSpot, other.ySpot) )){
+					other.foeInRange = id;
+				}
+			}
+			
 			if(d == 1 || (d == 2 && xSpot != other.xSpot && ySpot != other.ySpot ) ){
 				//in melee range of foe
 				tar = id; break;
 			}
 		}}
+		
+		if(unitShoot()){ return; }
+		
 		//melee building
 		if(tar == noone){
 			var buildingOn = collision_point(x, y, objBuilding, true, true);

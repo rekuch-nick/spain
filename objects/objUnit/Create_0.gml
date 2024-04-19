@@ -25,6 +25,14 @@ inRange = false;
 
 aggroRange = 1;
 
+
+rangedAttack = false;
+gunRange = 6;
+gunLoadTime = 60 * 5;
+gunPower = 100;
+gunHitChance = 100;
+
+
 bornAt = noone;
 pulled = false;
 garisonAt = noone;
