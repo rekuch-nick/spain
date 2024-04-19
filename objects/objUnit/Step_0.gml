@@ -3,6 +3,12 @@ if(ww.state != State.play){ return; }
 
 
 if(hp < 1){
+	if(aly == 1){ ww.pop --; }
+	
+	if(garisonAt != noone){
+		ds_list_delete(garisonAt.garison, ds_list_find_index(garisonAt.garison, id));
+	}
+	
 	instance_destroy();
 	return;
 }
@@ -28,13 +34,16 @@ if(x == xSpot * 64 + 32 && y == ySpot * 64 + 32){
 		}}
 		//melee building
 		if(tar == noone){
-			var b = collision_point(x, y, objBuilding, true, true);
-			if(b != noone){
-				if(b.aly != aly){
-					tar = b;
+			var buildingOn = collision_point(x, y, objBuilding, true, true);
+			if(buildingOn != noone){
+				if(buildingOn.aly != aly && buildingOn.attackable){
+					tar = buildingOn;
 				}
 			}
+			if(garisonAt == noone){ unitsGarison(buildingOn); }
 		}
+		
+		
 		//melee wall
 		if(tar == noone){
 			with(objWall){ if(aly != other.aly){
@@ -89,12 +98,18 @@ if(x == xSpot * 64 + 32 && y == ySpot * 64 + 32){
 						}
 					}
 					
+					if(garisonAt != noone){
+						if(a < garisonAt.x1 || b < garisonAt.y1){ return; }
+						if(a >= garisonAt.x1 + garisonAt.wGarison || b >= garisonAt.y1 + garisonAt.hGarison){ return; }
+					}
+					
 					if(xLast < xSpot && image_xscale < 0){ image_xscale *= -1; }
 					if(xLast > xSpot && image_xscale > 0){ image_xscale *= -1; }
 					
 					xLast = xSpot; yLast = ySpot;
 					xSpot = a; ySpot = b;
 					actCD = actCDMax;
+					
 				}
 			}
 		}

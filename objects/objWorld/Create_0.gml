@@ -1,9 +1,10 @@
-room_speed = 30;
-room_speed = 120;
+room_speed = 60;
+//room_speed = 90;
 depth = -9990;
 
 layerB = -1000;
 layerM = -3000;
+layerE = -7000;
 
 state = State.play;
 
@@ -28,10 +29,14 @@ instance_create_depth(0, 0, -9999, objScreenTitle);
 
 mapLoadSpain();
 
-
+xLastDragPoint = mouse_x;
+yLastDragPoint = mouse_y;
 
 skipStep = false;
-coins = 100;
+coins = 0;
+pop = 0; popMax = 20;
 cursor = noone;
 buildBlocker = noone;
 buildInRange = false;
+
+endPlayTime = 0;

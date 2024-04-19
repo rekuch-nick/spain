@@ -11,6 +11,7 @@ if(mouse_check_button_pressed(mb_left)){
 				w: cursor.w, 
 				h: cursor.h, 
 				cost: cursor.cost,
+				spawnCost: cursor.spawnCost,
 				rang: cursor.rang,
 			};
 			with(objWorld){ buildCollisionMap(); }
@@ -18,3 +19,7 @@ if(mouse_check_button_pressed(mb_left)){
 		}
 	}
 }
+
+
+
+

@@ -12,8 +12,8 @@
     "path": "folders/Objects.yy",
   },
   "parentObjectId": {
-    "name": "objBuilding",
-    "path": "objects/objBuilding/objBuilding.yy",
+    "name": "objBuildingFoe",
+    "path": "objects/objBuildingFoe/objBuildingFoe.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

@@ -8,5 +8,21 @@ function stepPlayScript(){
 		m.yTar = instance_find(objHero, 0).ySpot;
 		m.pulled = true;
 	}
-
+	
+	
+	
+	if( instance_number(objHero) < 1 ){
+		ww.state = State.endPlay;
+		ww.endPlayTime = 90;
+		ww.endPlayMessage = "The commander has fallen! Retreat!";
+	}
+	
+	
+	if( instance_number(objUnitFoe) < 1 && instance_number(objBuildingFoe) < 1){
+		ww.state = State.endPlay;
+		ww.endPlayTime = 90;
+		ww.endPlayMessage = "VICTORY!";
+	}
+	
+	
 }

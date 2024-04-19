@@ -2,8 +2,8 @@ image_xscale = 4; image_yscale = 4;
 aly = 0;
 willMove = true;
 
-actCD = 90;
-actCDMax = 90;
+actCD = 30;
+actCDMax = 30;
 
 hp = 10;
 hpMax = 10;
@@ -27,3 +27,5 @@ aggroRange = 1;
 
 bornAt = noone;
 pulled = false;
+garisonAt = noone;
+canBeGarison = true;
